@@ -50,6 +50,7 @@ $ npm start
 # the produced code can be deployed (rsynced) to a remote server
 $ npm run build
 ```
+Note: You only need to run npm install the first time setting the environment.
 
 ### Code scaffolding
 
