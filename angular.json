@@ -25,7 +25,8 @@
               "src/styles/app.scss"
             ],
             "scripts": [
-              "node_modules/chart.js/dist/Chart.js"
+              "node_modules/chart.js/dist/Chart.js",
+              "dashboard/calendar.js"
             ]
           },
           "configurations": {
