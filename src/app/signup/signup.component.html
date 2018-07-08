@@ -23,10 +23,21 @@
                   </div>
                 </div>
                 
-                <div class="form-group">
+                <div class = "row">
+                    <div class = "col-xs-12 col-sm-6 col-md-6">
+                        <div class="form-group">
                         <input type="email" name="email" id="email" class="form-control input-underline input-lg" placeholder="Email" tabindex="1" required>
                     <!--<input type="email" name="email" id="email" [(ngModel)]="userModel.email" #email ="ngModel" class="form-control input-underline input-lg" placeholder="Email" tabindex="1" required>-->
                     <!--<div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>-->
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                              <input type="text" name="studentid" id="studentid" class="form-control input-underline input-lg" placeholder="Student ID" required>
+                              <!--<input type="text" name="lastName" id="lastName" [(ngModel)]="userModel.lastName" #lastName ="ngModel" class="form-control input-underline input-lg" placeholder="Last Name" required>-->
+                              <!--<div *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is required</div>-->
+                            </div>
+                    </div>
                 </div>
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-6">
