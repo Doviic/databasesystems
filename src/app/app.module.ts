@@ -10,6 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
 
+import {CalendarModule} from 'angular-calendar';
+import '../../node_modules/flatpickr/dist/flatpickr.css';
+import { FormsModule } from '@angular/forms';
+import { FlatpickrModule } from 'angularx-flatpickr';
+
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
     /* for development
@@ -26,6 +31,9 @@ export const createTranslateLoader = (http: HttpClient) => {
         CommonModule,
         BrowserModule,
         BrowserAnimationsModule,
+        CalendarModule.forRoot(),
+        FormsModule,
+        FlatpickrModule.forRoot(),
         HttpClientModule,
         TranslateModule.forRoot({
             loader: {

@@ -11,13 +11,22 @@ import {
 } from './components';
 import { StatModule } from '../../shared';
 
+import { FormsModule } from '@angular/forms';
+import { CalendarModule } from 'angular-calendar';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap/modal/modal.module';
+import { FlatpickrModule } from 'angularx-flatpickr';
+
 @NgModule({
     imports: [
         CommonModule,
         NgbCarouselModule.forRoot(),
         NgbAlertModule.forRoot(),
         DashboardRoutingModule,
-        StatModule
+        StatModule,
+        FormsModule,
+        NgbModalModule.forRoot(),
+        FlatpickrModule.forRoot(),
+        CalendarModule.forRoot()
     ],
     declarations: [
         DashboardComponent,

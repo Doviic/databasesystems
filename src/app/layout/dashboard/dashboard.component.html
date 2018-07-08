@@ -1,47 +1,190 @@
-<head>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-  <script src="calendar.js"></script>
-  <script>
-  var cal = CALENDAR();
-
-  cal.init();
-  </script>
-  <meta charset="utf-8" />
-  <title>EventU</title>
-</head>
-
-<div [@routerTransition]>
-    <h2 class="text-muted">Calendar <small>Select Your Date</small></h2>
-</div>
-
-<body>
-  <div id="cal">
-		<div class="header">
-			<span class="left button" id="prev"> &lang; </span>
-			<span class="left hook"></span>
-			<span class="month-year" id="label"> June 2010 </span>
-			<span class="right hook" id=""></span>
-			<span class="right button" id="next"> &rang; </span>
-		</div>
-		<table id="days">
-			<tr>
-				<td>sun</td>
-				<td>mon</td>
-				<td>tue</td>
-				<td>wed</td>
-				<td>thu</td>
-				<td>fri</td>
-				<td>sat</td>
-			</tr>
-		</table>
-		<div id="cal-frame">
-			<table class="curr">
-				<tr><td class="nil"></td><td class="nil"></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
-				<tr><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td class="today">11</td><td>12</td></tr>
-				<tr><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td></tr>
-				<tr><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td></tr>
-				<tr><td>27</td><td>28</td><td>29</td><td>30</td><td class="nil"></td><td class="nil"></td><td class="nil"></td></tr>
-			</table>
-		</div>
+<ng-template #modalContent let-close="close">
+	<div class="modal-header">
+	  <h5 class="modal-title">Event action occurred</h5>
+	  <button type="button" class="close" (click)="close()">
+		<span aria-hidden="true">&times;</span>
+	  </button>
 	</div>
-</body>
+	<div class="modal-body">
+	  <div>
+		Action:
+		<pre>{{ modalData?.action }}</pre>
+	  </div>
+	  <div>
+		Event:
+		<pre>{{ modalData?.event | json }}</pre>
+	  </div>
+	</div>
+	<div class="modal-footer">
+	  <button type="button" class="btn btn-outline-secondary" (click)="close()">OK</button>
+	</div>
+  </ng-template>
+  
+  <div class="row text-center">
+	<div class="col-md-4">
+	  <div class="btn-group">
+		<div
+		  class="btn btn-primary"
+		  mwlCalendarPreviousView
+		  [view]="view"
+		  [(viewDate)]="viewDate"
+		  (viewDateChange)="activeDayIsOpen = false">
+		  Previous
+		</div>
+		<div
+		  class="btn btn-outline-secondary"
+		  mwlCalendarToday
+		  [(viewDate)]="viewDate">
+		  Today
+		</div>
+		<div
+		  class="btn btn-primary"
+		  mwlCalendarNextView
+		  [view]="view"
+		  [(viewDate)]="viewDate"
+		  (viewDateChange)="activeDayIsOpen = false">
+		  Next
+		</div>
+	  </div>
+	</div>
+	<div class="col-md-4">
+	  <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+	</div>
+	<div class="col-md-4">
+	  <div class="btn-group">
+		<div
+		  class="btn btn-primary"
+		  (click)="view = 'month'"
+		  [class.active]="view === 'month'">
+		  Month
+		</div>
+		<div
+		  class="btn btn-primary"
+		  (click)="view = 'week'"
+		  [class.active]="view === 'week'">
+		  Week
+		</div>
+		<div
+		  class="btn btn-primary"
+		  (click)="view = 'day'"
+		  [class.active]="view === 'day'">
+		  Day
+		</div>
+	  </div>
+	</div>
+  </div>
+  <br>
+  <div [ngSwitch]="view">
+	<mwl-calendar-month-view
+	  *ngSwitchCase="'month'"
+	  [viewDate]="viewDate"
+	  [events]="events"
+	  [refresh]="refresh"
+	  [activeDayIsOpen]="activeDayIsOpen"
+	  (dayClicked)="dayClicked($event.day)"
+	  (eventClicked)="handleEvent('Clicked', $event.event)"
+	  (eventTimesChanged)="eventTimesChanged($event)">
+	</mwl-calendar-month-view>
+	<mwl-calendar-week-view
+	  *ngSwitchCase="'week'"
+	  [viewDate]="viewDate"
+	  [events]="events"
+	  [refresh]="refresh"
+	  (eventClicked)="handleEvent('Clicked', $event.event)"
+	  (eventTimesChanged)="eventTimesChanged($event)">
+	</mwl-calendar-week-view>
+	<mwl-calendar-day-view
+	  *ngSwitchCase="'day'"
+	  [viewDate]="viewDate"
+	  [events]="events"
+	  [refresh]="refresh"
+	  (eventClicked)="handleEvent('Clicked', $event.event)"
+	  (eventTimesChanged)="eventTimesChanged($event)">
+	</mwl-calendar-day-view>
+  </div>
+  
+  <br><br><br>
+  
+  <h3>
+	Edit events
+	<button
+	  class="btn btn-primary pull-right"
+	  (click)="addEvent()">
+	  Add new
+	</button>
+	<div class="clearfix"></div>
+  </h3>
+  
+  <table class="table table-bordered">
+  
+	<thead>
+	  <tr>
+		<th>Title</th>
+		<th>Primary color</th>
+		<th>Secondary color</th>
+		<th>Starts at</th>
+		<th>Ends at</th>
+		<th>Remove</th>
+	  </tr>
+	</thead>
+  
+	<tbody>
+	  <tr *ngFor="let event of events; let index = index">
+		<td>
+		  <input
+			type="text"
+			class="form-control"
+			[(ngModel)]="event.title"
+			(keyup)="refresh.next()">
+		</td>
+		<td>
+		  <input
+			type="color"
+			[(ngModel)]="event.color.primary"
+			(change)="refresh.next()">
+		</td>
+		<td>
+		  <input
+			type="color"
+			[(ngModel)]="event.color.secondary"
+			(change)="refresh.next()">
+		</td>
+		<td>
+		  <input
+			class="form-control"
+			type="text"
+			mwlFlatpickr
+			[(ngModel)]="event.start"
+			(ngModelChange)="refresh.next()"
+			[altInput]="true"
+			[convertModelValue]="true"
+			[enableTime]="true"
+			dateFormat="Y-m-dTH:i"
+			altFormat="F j, Y H:i"
+			placeholder="Not set">
+		</td>
+		<td>
+		  <input
+			class="form-control"
+			type="text"
+			mwlFlatpickr
+			[(ngModel)]="event.end"
+			(ngModelChange)="refresh.next()"
+			[altInput]="true"
+			[convertModelValue]="true"
+			[enableTime]="true"
+			dateFormat="Y-m-dTH:i"
+			altFormat="F j, Y H:i"
+			placeholder="Not set">
+		</td>
+		<td>
+		  <button
+			class="btn btn-danger"
+			(click)="events.splice(index, 1); refresh.next()">
+			Delete
+		  </button>
+		</td>
+	  </tr>
+	</tbody>
+  
+  </table>
