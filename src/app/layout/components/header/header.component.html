@@ -1,14 +1,20 @@
 <nav class="navbar navbar-expand-lg fixed-top">
+<<<<<<< HEAD
     <a class="navbar-brand" href="#">EventU</a>
      <!-- <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+=======
+    <a class="navbar-brand" href="#">EventU </a>
+    <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+        <!-- <span class="navbar-toggler-icon"></span> -->
+>>>>>>> develop
         <i class="fa fa-bars text-muted" aria-hidden="true"></i>
     </button>
     <div class="collapse navbar-collapse">
-        <form class="form-inline my-2 my-lg-0">
+        <!--<form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="{{ 'Search' | translate }}" >
-        </form>
+        </form>-->
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item d-none d-xl-block">
+            <!--<li class="nav-item d-none d-xl-block">
                 <a
                     href="https://github.com/start-angular/SB-Admin-BS4-Angular-2/archive/master.zip"
                     class="nav-link btn mt-1" role="button"
@@ -83,7 +89,7 @@
                         {{ 'View All' | translate }}
                     </a>
                 </div>
-            </li>
+            </li>-
             <li class="nav-item dropdown" ngbDropdown>
                 <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
                     <i class="fa fa-language"></i> {{ 'Language' | translate }} <b class="caret"></b>
@@ -110,17 +116,17 @@
                     <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('de')">
                         {{ 'German' | translate }}
                     </a>
-                    <a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('zh-CHS')">
+                    1<a class="dropdown-item" href="javascript:void(0)" (click)="changeLang('zh-CHS')">
                         {{ 'Simplified Chinese' | translate }}
                     </a>
                 </div>
-            </li>
+            </li>-->
             <li class="nav-item dropdown" ngbDropdown>
                 <a href="javascript:void(0)" class="nav-link" ngbDropdownToggle>
                     <i class="fa fa-user"></i> John Smith <b class="caret"></b>
                 </a>
                 <div class="dropdown-menu-right" ngbDropdownMenu>
-                    <a class="dropdown-item" href="javascript:void(0)">
+                <!--    <a class="dropdown-item" href="javascript:void(0)">
                         <i class="fa fa-fw fa-user"></i> {{ 'Profile' | translate }}
                     </a>
                     <a class="dropdown-item" href="javascript:void(0)">
@@ -128,7 +134,7 @@
                     </a>
                     <a class="dropdown-item" href="javascript:void(0)">
                         <i class="fa fa-fw fa-gear"></i> {{ 'Settings' | translate }}
-                    </a>
+                    </a>-->
                     <a class="dropdown-item" [routerLink]="['/login']" (click)="onLoggedout()">
                         <i class="fa fa-fw fa-power-off"></i> {{ 'Log Out' | translate }}
                     </a>

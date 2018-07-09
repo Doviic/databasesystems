@@ -2,7 +2,7 @@
     <div class="row justify-content-md-center">
         <div class="col-md-4">
             <img class="user-avatar" src="assets/images/logo.png" width="150px" />
-            <h1>EventU Registration</h1>
+            <h1>EventU University Registration</h1>
             <form name="form">
             <!-- < form name="form" #f="ngForm"  (ngSubmit)=" register()"   novalidate > -->
           
@@ -23,21 +23,10 @@
                   </div>
                 </div>
                 
-                <div class = "row">
-                    <div class = "col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-group">
+                <div class="form-group">
                         <input type="email" name="email" id="email" class="form-control input-underline input-lg" placeholder="Email" tabindex="1" required>
                     <!--<input type="email" name="email" id="email" [(ngModel)]="userModel.email" #email ="ngModel" class="form-control input-underline input-lg" placeholder="Email" tabindex="1" required>-->
                     <!--<div *ngIf="f.submitted && !email.valid" class="help-block">Email is required</div>-->
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                            <div class="form-group">
-                              <input type="text" name="studentid" id="studentid" class="form-control input-underline input-lg" placeholder="Student ID" required>
-                              <!--<input type="text" name="lastName" id="lastName" [(ngModel)]="userModel.lastName" #lastName ="ngModel" class="form-control input-underline input-lg" placeholder="Last Name" required>-->
-                              <!--<div *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is required</div>-->
-                            </div>
-                    </div>
                 </div>
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-6">
@@ -58,23 +47,27 @@
                 </div>
 
                 <div class="row">
-                  <div class="col-xs-12 col-sm-6 col-md-12">
-                    
-           <form role="form">
-              <div class="form-group">
-                 <label>University</label>
-                  <select class="form-control">
-                      <option>University of Central Florida</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                  </select>
-              </div>
-              </form>
-
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                      <div class="form-group">
+                              <input type="text" name="university-name" id="university-name" class="form-control input-underline input-lg" placeholder="Univerity Name" tabindex="1" required>
+                          <!--<input type="password" name="password" id="password" [(ngModel)]="userModel.password" #password ="ngModel" class="form-control input-underline input-lg" placeholder="Password" tabindex="1" required>-->
+                          <!--<div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>-->
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                      <div class="form-group">
+                              <input type="text" name="numstudents" id="numstudents"class="form-control input-underline input-lg" placeholder="Number of Students" tabindex="1" required>
+                          <!--<input type="password" name="passwordConfirmation" id="passwordConfirmation" [(ngModel)]="userModel.passwordConfirmation" #passwordConfirmation ="ngModel" class="form-control input-underline input-lg" placeholder="Confirm Password" tabindex="1" required>-->
+                          <!--<div *ngIf="f.submitted && !passwordConfirmation.valid" class="help-block">Password Confirmation is required</div>-->
+                      </div>
+                    </div>
                   </div>
-                </div>
+
+                        <div class="form-group">
+                                <input type="text" name="address" id="address" class="form-control input-underline input-lg" placeholder="Address" tabindex="1" required>
+                            <!--<input type="password" name="password" id="password" [(ngModel)]="userModel.password" #password ="ngModel" class="form-control input-underline input-lg" placeholder="Password" tabindex="1" required>-->
+                            <!--<div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>-->
+                        </div>
 
                 <!--<div class="row">  
                   <div class="col-xs-12 col-sm-3 col-md-3">

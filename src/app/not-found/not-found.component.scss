@@ -1,0 +1,31 @@
+$topnav-background-color: #222;
+:host {
+    display: block;
+}
+.server-error {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    background: rgb(161, 161, 161);
+    text-align: center;
+    color: rgb(0, 0, 0);
+    padding: 3em;
+    .col-lg-4 {
+        padding: 0;
+    }
+    
+
+    h1 {
+        font-weight: 300;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        font-size: 48px;
+        small {
+            color: rgba(0, 0, 0, 0.7);
+        }
+    }
+    
+}
