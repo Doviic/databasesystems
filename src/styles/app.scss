@@ -4,6 +4,11 @@
 @import "utils";
 @import "rtl";
 @import "responsive";
+@import "../../node_modules/angular-calendar/css/angular-calendar.css";
+@import '../../node_modules/flatpickr/dist/flatpickr.css';
+
+
+// ../node_modules/angular-calendar/css/angular-calendar.css
 
 @media print {
     .breadcrumb {

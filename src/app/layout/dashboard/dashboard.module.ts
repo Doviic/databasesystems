@@ -11,13 +11,26 @@ import {
 } from './components';
 import { StatModule } from '../../shared';
 
+import { FormsModule } from '@angular/forms';
+import { CalendarModule } from 'angular-calendar';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap/modal/modal.module';
+import { FlatpickrModule } from 'angularx-flatpickr';
+
+import {
+    CalendarEvent,
+  } from 'angular-calendar';
+
 @NgModule({
     imports: [
         CommonModule,
         NgbCarouselModule.forRoot(),
         NgbAlertModule.forRoot(),
         DashboardRoutingModule,
-        StatModule
+        StatModule,
+        FormsModule,
+        NgbModalModule.forRoot(),
+        FlatpickrModule.forRoot(),
+        CalendarModule.forRoot()
     ],
     declarations: [
         DashboardComponent,
@@ -27,3 +40,17 @@ import { StatModule } from '../../shared';
     ]
 })
 export class DashboardModule {}
+export interface MyEvent extends CalendarEvent {
+    description: string;
+    location: string;
+    category: string;
+    phone: string;
+    type: string;
+    email: string;
+}
+
+export interface MyCalendarEventTimesChangedEvent {
+    event: MyEvent;
+    newStart: Date;
+    newEnd?: Date;
+}
