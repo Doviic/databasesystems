@@ -16,6 +16,10 @@ import { CalendarModule } from 'angular-calendar';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap/modal/modal.module';
 import { FlatpickrModule } from 'angularx-flatpickr';
 
+import {
+    CalendarEvent,
+  } from 'angular-calendar';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -36,3 +40,17 @@ import { FlatpickrModule } from 'angularx-flatpickr';
     ]
 })
 export class DashboardModule {}
+export interface MyEvent extends CalendarEvent {
+    description: string;
+    location: string;
+    category: string;
+    phone: string;
+    type: string;
+    email: string;
+}
+
+export interface MyCalendarEventTimesChangedEvent {
+    event: MyEvent;
+    newStart: Date;
+    newEnd?: Date;
+}

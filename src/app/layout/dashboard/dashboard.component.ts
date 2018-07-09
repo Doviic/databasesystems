@@ -21,6 +21,10 @@ import {
     CalendarEventAction,
     CalendarEventTimesChangedEvent
   } from 'angular-calendar';
+  import {
+      MyEvent,
+      MyCalendarEventTimesChangedEvent
+} from './dashboard.module';
   const colors: any = {
     red: {
       primary: '#ad2121',
@@ -47,43 +51,61 @@ import {
     viewDate: Date = new Date();
     modalData: {
       action: string;
-      event: CalendarEvent;
+      event: MyEvent;
     };
     actions: CalendarEventAction[] = [
       {
         label: '<i class="fa fa-fw fa-pencil"></i>',
-        onClick: ({ event }: { event: CalendarEvent }): void => {
+        onClick: ({ event }: { event: MyEvent }): void => {
           this.handleEvent('Edited', event);
         }
       },
       {
         label: '<i class="fa fa-fw fa-times"></i>',
-        onClick: ({ event }: { event: CalendarEvent }): void => {
+        onClick: ({ event }: { event: MyEvent }): void => {
           this.events = this.events.filter(iEvent => iEvent !== event);
           this.handleEvent('Deleted', event);
         }
       }
     ];
     refresh: Subject<any> = new Subject();
-    events: CalendarEvent[] = [
+    events: MyEvent[] = [
       {
         start: subDays(startOfDay(new Date()), 1),
         end: addDays(new Date(), 1),
         title: 'A 3 day event',
         color: colors.red,
-        actions: this.actions
+        actions: this.actions,
+        description: 'N/A',
+        location: '4000 Central Florida Blvd, Orlando, FL 32816',
+        category: 'none for now',
+        phone: '123-456-7890',
+        type: 'none',
+        email: 'fake@fake.com'
       },
       {
         start: startOfDay(new Date()),
         title: 'An event with no end date',
         color: colors.yellow,
-        actions: this.actions
+        actions: this.actions,
+        description: 'N/A',
+        location: '4000 Central Florida Blvd, Orlando, FL 32816',
+        category: 'none for now',
+        phone: '123-456-7890',
+        type: 'none',
+        email: 'fake@fake.com'
       },
       {
         start: subDays(endOfMonth(new Date()), 3),
         end: addDays(endOfMonth(new Date()), 3),
         title: 'A long event that spans 2 months',
-        color: colors.blue
+        color: colors.blue,
+        description: 'N/A',
+        location: '4000 Central Florida Blvd, Orlando, FL 32816',
+        category: 'none for now',
+        phone: '123-456-7890',
+        type: 'none',
+        email: 'fake@fake.com'
       },
       {
         start: addHours(startOfDay(new Date()), 2),
@@ -95,12 +117,18 @@ import {
           beforeStart: true,
           afterEnd: true
         },
-        draggable: true
+        draggable: true,
+        description: 'N/A',
+        location: '4000 Central Florida Blvd, Orlando, FL 32816',
+        category: 'none for now',
+        phone: '123-456-7890',
+        type: 'none',
+        email: 'fake@fake.com'
       }
     ];
     activeDayIsOpen: boolean = true;
     constructor(private modal: NgbModal) {}
-    dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
+    dayClicked({ date, events }: { date: Date; events: MyEvent[] }): void {
       if (isSameMonth(date, this.viewDate)) {
         if (
           (isSameDay(this.viewDate, date) && this.activeDayIsOpen === true) ||
@@ -117,13 +145,13 @@ import {
       event,
       newStart,
       newEnd
-    }: CalendarEventTimesChangedEvent): void {
+    }: MyCalendarEventTimesChangedEvent): void {
       event.start = newStart;
       event.end = newEnd;
       this.handleEvent('Dropped or resized', event);
       this.refresh.next();
     }
-    handleEvent(action: string, event: CalendarEvent): void {
+    handleEvent(action: string, event: MyEvent): void {
       this.modalData = { event, action };
       this.modal.open(this.modalContent, { size: 'lg' });
     }
@@ -137,7 +165,13 @@ import {
         resizable: {
           beforeStart: true,
           afterEnd: true
-        }
+        },
+        description: 'N/A',
+        location: '4000 Central Florida Blvd, Orlando, FL 32816',
+        category: 'none for now',
+        phone: '123-456-7890',
+        type: 'none',
+        email: 'fake@fake.com'
       });
       this.refresh.next();
     }
