@@ -1,5 +1,5 @@
 <div class="row mt-3">
-    <div class="col-sm-6">
+    <!--<div class="col-sm-6">
         <div class="card">
             <div class="card-header">Timepicker (<b>Default</b>)</div>
             <div class="card-body">
@@ -9,22 +9,22 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-sm-6">
+    </div>-->
+    <div>
         <div class="card">
-            <div class="card-header">Timepicker (<b>Default</b>)</div>
+            <!--<div class="card-header">Timepicker (<b>Default</b>)</div>-->
             <div class="card-body">
                 <ngb-timepicker [(ngModel)]="meridianTime" [meridian]="meridian"></ngb-timepicker>
-                <button class="btn btn-sm btn-outline-{{meridian ? 'success' : 'danger'}}" (click)="toggleMeridian()">
+                <!--<button class="btn btn-sm btn-outline-{{meridian ? 'success' : 'danger'}}" (click)="toggleMeridian()">
                     Meridian - {{meridian ? "ON" : "OFF"}}
                 </button>
                 <div class="alert alert-info mt-3 mb-0">
                     <b>Selected time: </b>{{meridianTime | json}}
-                </div>
+                </div>-->
             </div>
         </div>
     </div>
-    <div class="col-sm-6">
+    <!--<div class="col-sm-6">
         <div class="card">
             <div class="card-header">Timepicker (<b>Seconds</b>)</div>
             <div class="card-body">
@@ -64,5 +64,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>

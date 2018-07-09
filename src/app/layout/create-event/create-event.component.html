@@ -1,22 +1,157 @@
-<h1>Create a Event</h1>
+<div>
+        <div class="col-md-8">
+            <h1>Create an Event</h1>
+            <form name="form">
+            <!-- < form name="form" #f="ngForm"  (ngSubmit)=" register()"   novalidate > -->
+          
+                <div class="row">
+                 <div class="col-xs-12 col-sm-6 col-md-12">
+                    <div class="form-group">
+                            <input type="text" name="eventname" id="eventname" class="form-control input-underline input-lg" placeholder="Event Name" required>
+                      <!--<input type="text" name="firstName" id="firstName" #firstName="ngModel" [(ngModel)]="userModel.firstName" class="form-control input-underline input-lg" placeholder="First Name" required>-->
+                      <!--<div *ngIf="f.submitted  && !firstName.valid" class="help-block">First Name is required</div>-->
+                    </div>
+                  </div>
+                 <!-- <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                      <input type="text" name="lastName" id="lastName" class="form-control input-underline input-lg" placeholder="Last Name" required>
+                      <!--<input type="text" name="lastName" id="lastName" [(ngModel)]="userModel.lastName" #lastName ="ngModel" class="form-control input-underline input-lg" placeholder="Last Name" required>-->
+                      <!--<div *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is required</div>-->
+                    <!--</div>
+                  </div>-->
+                </div>
+                
+                <div class = "row">
+                    <div class = "col-xs-12 col-sm-6 col-md-6">
+                            <h2>Start Date</h2>
+                                <app-date-picker></app-date-picker>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                    <div class="form-group">
+                                            <h2>End Date</h2>
+                                                <app-date-picker></app-date-picker>
+                                        </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                            <div class="form-group">
+                                    <h2>Start Time</h2>
+                                        <app-timepicker></app-timepicker>
+                                </div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="form-group">
+                            <div class="form-group">
+                                    <h2>End Time</h2>
+                                        <app-timepicker></app-timepicker>
+                                </div>
+                    </div>
+                    <!--<div class="alert alert-danger w-100" <!--*ngIf = "errors.password !== null">{{errors.password}}</div>-->
+                  </div>
+                </div>
+                
+                <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                          <div class="form-group">
+                                <label>Select Event Category</label>
+                                <select class="form-control">
+                                    <option>Homecoming</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </select>
+                          </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                          <div class="form-group">
+                                <label>Select Event Type</label>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked=""> Public
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Private
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3"> RSO
+                                    </label>
+                                </div>
+                          </div>
+                          <!--<div class="alert alert-danger w-100" <!--*ngIf = "errors.password !== null">{{errors.password}}</div>-->
+                        </div>
+                      </div>
 
-<div class="row">
-        <form role="form" class="col-lg-1">
-            <fieldset class="form-group">
-                <label>Enter a name for the Event</label>
-                <input class="form-control">
-                <label>Enter an Address</label>
-                <input class="form-control">
-            </fieldset>
+                      <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                               <div class="form-group">
+                                       <input type="text" name="email" id="email" class="form-control input-underline input-lg" placeholder="Contact Email" required>
+                                 <!--<input type="text" name="firstName" id="firstName" #firstName="ngModel" [(ngModel)]="userModel.firstName" class="form-control input-underline input-lg" placeholder="First Name" required>-->
+                                 <!--<div *ngIf="f.submitted  && !firstName.valid" class="help-block">First Name is required</div>-->
+                               </div>
+                             </div>
+                             <div class="col-xs-12 col-sm-6 col-md-6">
+                               <div class="form-group">
+                                 <input type="text" name="phone" id="phone" class="form-control input-underline input-lg" placeholder="Contact Phone Number" required>
+                                 <!--<input type="text" name="lastName" id="lastName" [(ngModel)]="userModel.lastName" #lastName ="ngModel" class="form-control input-underline input-lg" placeholder="Last Name" required>-->
+                                 <!--<div *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is required</div>-->
+                               </div>
+                             </div>
+                           </div>
 
-            <fieldset class="form-group">
-                <label>Enter an Address</label>
-                <input class="form-control">
-            </fieldset>
+                           <div class="row">
+                                <div class="col-xs-12 col-sm-6 col-md-12">
+                                   <div class="form-group">
+                                           <input type="text" name="address" id="address" class="form-control input-underline input-lg" placeholder="Event Address" required>
+                                     <!--<input type="text" name="firstName" id="firstName" #firstName="ngModel" [(ngModel)]="userModel.firstName" class="form-control input-underline input-lg" placeholder="First Name" required>-->
+                                     <!--<div *ngIf="f.submitted  && !firstName.valid" class="help-block">First Name is required</div>-->
+                                   </div>
+                                 </div>
+                                <!-- <div class="col-xs-12 col-sm-6 col-md-6">
+                                   <div class="form-group">
+                                     <input type="text" name="lastName" id="lastName" class="form-control input-underline input-lg" placeholder="Last Name" required>
+                                     <!--<input type="text" name="lastName" id="lastName" [(ngModel)]="userModel.lastName" #lastName ="ngModel" class="form-control input-underline input-lg" placeholder="Last Name" required>-->
+                                     <!--<div *ngIf="f.submitted && !lastName.valid" class="help-block">Last Name is required</div>-->
+                                   <!--</div>
+                                 </div>-->
+                               </div>
+
+                               <div class="row">
+                                    <div class="col-xs-12 col-sm-6 col-md-12">
+                                       <div class="form-group">
+                                            <label>Description</label>
+                                            <textarea class="form-control" rows="3"></textarea>
+                                       </div>
+                                     </div>
+                                   </div>
 
 
-            
-        </form>
-        
+                <!--<div class="row">  
+                  <div class="col-xs-12 col-sm-3 col-md-3">
+                    <div class="form-group">
+                      <label for="insurance">Insurances:</label>
+                      <select [(ngModel)]="patientModel.insurance" name="insurance" #insurance="ngModel">
+                        <option *ngFor="let insurance of insurances" [ngValue]="insurance._id">{{insurance.name}}</option>
+                      </select> 
+                      <div *ngIf="f.submitted && !insurance.valid" class="help-block">Insurance is required</div>
+                    </div>
+                  </div>
+                </div>-->
+              
+                
+      
+                <div class="row">
+                  <div class="col-xs-12 col-md-6"><input type="submit" value="Submit" class="btn rounded-btn" tabindex="7"></div>
+                </div>
+              </form>
+        </div>
     </div>
-    <button type="submit" class="btn btn-secondary">Register</button>

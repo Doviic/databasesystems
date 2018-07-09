@@ -46,6 +46,8 @@ import {
     templateUrl: './dashboard.component.html'
   })
   export class DashboardComponent {
+    latitude: number = 28.596877;
+    longitude: number = -81.203308;
     @ViewChild('modalContent') modalContent: TemplateRef<any>;
     view: string = 'month';
     viewDate: Date = new Date();
@@ -73,27 +75,27 @@ import {
       {
         start: subDays(startOfDay(new Date()), 1),
         end: addDays(new Date(), 1),
-        title: 'A 3 day event',
+        title: 'Spirit Splash',
         color: colors.red,
         actions: this.actions,
-        description: 'N/A',
+        description: 'Spirit Splash — the annual event in which students rally at the Reflecting Pond during Homecoming Week and charge in to wrestle over rubber ducks.',
         location: '4000 Central Florida Blvd, Orlando, FL 32816',
-        category: 'none for now',
-        phone: '123-456-7890',
-        type: 'none',
-        email: 'fake@fake.com'
+        category: 'Homecoming',
+        phone: '407-823-6471',
+        type: 'Private',
+        email: 'osi@ucf.edu'
       },
       {
         start: startOfDay(new Date()),
-        title: 'An event with no end date',
+        title: 'IEEE General Body Meeting',
         color: colors.yellow,
         actions: this.actions,
-        description: 'N/A',
-        location: '4000 Central Florida Blvd, Orlando, FL 32816',
-        category: 'none for now',
+        description: 'At this meeting, we will be discussing how you can get involved with IEEE! Learn about upcoming projects and opportunities, and meet the executive board! Free pizza will be provided, all are welcome to join!',
+        location: 'Harris Corporation Engineering Center, Orlando, FL 32816',
+        category: 'RSO Meeting',
         phone: '123-456-7890',
-        type: 'none',
-        email: 'fake@fake.com'
+        type: 'RSO',
+        email: 'IEEE@ucf.edu'
       },
       {
         start: subDays(endOfMonth(new Date()), 3),
@@ -110,7 +112,7 @@ import {
       {
         start: addHours(startOfDay(new Date()), 2),
         end: new Date(),
-        title: 'A draggable and resizable event',
+        title: 'Blood Drive',
         color: colors.yellow,
         actions: this.actions,
         resizable: {
@@ -120,10 +122,10 @@ import {
         draggable: true,
         description: 'N/A',
         location: '4000 Central Florida Blvd, Orlando, FL 32816',
-        category: 'none for now',
-        phone: '123-456-7890',
-        type: 'none',
-        email: 'fake@fake.com'
+        category: 'Volunteer',
+        phone: '407-823-3094',
+        type: 'Public',
+        email: 'BloodDrives@ucf.edu'
       }
     ];
     activeDayIsOpen: boolean = true;

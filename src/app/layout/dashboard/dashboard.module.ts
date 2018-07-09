@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'angular-calendar';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap/modal/modal.module';
 import { FlatpickrModule } from 'angularx-flatpickr';
+import {AgmCoreModule} from '@agm/core';
 
 import {
     CalendarEvent,
@@ -30,7 +31,10 @@ import {
         FormsModule,
         NgbModalModule.forRoot(),
         FlatpickrModule.forRoot(),
-        CalendarModule.forRoot()
+        CalendarModule.forRoot(),
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyAi1MRoDG5I83pAo6DE5pDWxkL-ELk2ViY'
+          })
     ],
     declarations: [
         DashboardComponent,

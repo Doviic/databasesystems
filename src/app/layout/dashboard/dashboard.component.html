@@ -35,7 +35,14 @@
 			<pre>{{ modalData?.event.phone }}</pre>
 			<pre>{{ modalData?.event.email }}</pre>
 			
-	  </div>
+		</div>
+		<div>
+			<pre>
+			<agm-map [latitude] ="latitude" [longitude] ="longitude">
+				<agm-marker [latitude] ="latitude" [longitude] ="longitude"></agm-marker>
+			</agm-map>
+		</pre>
+		</div>
 	</div>
 	<div class="modal-footer">
 	  <button type="button" class="btn btn-outline-secondary" (click)="close()">OK</button>
