@@ -33,7 +33,7 @@ import {
         FlatpickrModule.forRoot(),
         CalendarModule.forRoot(),
         AgmCoreModule.forRoot({
-            apiKey: 'AIzaSyAi1MRoDG5I83pAo6DE5pDWxkL-ELk2ViY'
+            apiKey: 'API KEY GOES HERE'
           })
     ],
     declarations: [
